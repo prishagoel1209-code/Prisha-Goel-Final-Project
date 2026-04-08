@@ -1,0 +1,242 @@
+<!doctype html>
+<html>
+    <head>
+        <title>Ivory Brew Coffee</title>
+
+        <!-- Bootstrap -->
+        <link
+            href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css"
+            rel="stylesheet"
+        />
+
+        <link rel="stylesheet" href="styles.css" />
+    </head>
+
+    <body>
+        <!-- NAVBAR -->
+        <div class="bg-dark p-3">
+            <!-- Top Row -->
+            <div class="d-flex justify-content-between">
+                <!-- Left: Title -->
+                <span class="text-white fw-bold brand">
+                    Ivory Brew Coffee
+                </span>
+
+                <span class="cart-box">
+                    Cart: <span id="cartCount">0</span>
+                </span>
+            </div>
+
+            <div class="mt-2">
+                <a href="#" class="text-white me-3">Home</a>
+                <a href="#about" class="text-white me-3">About Us</a>
+                <a href="#menu" class="text-white me-3">Menu</a>
+                <a href="#cart" class="text-white me-3">Cart</a>
+                <a href="#location" class="container mt-4">Location</a>
+                <a href="#contact" class="text-white me-3">Contact</a>
+            </div>
+        </div>
+
+        <!-- HEADING -->
+        <div class="container text-center mt-4">
+            <h1>Welcome to Ivory Brew Coffee</h1>
+            <p>Your Daily Dose of Happiness</p>
+        </div>
+
+        <!-- ABOUT US -->
+        <div class="container mt-5" id="about">
+            <h2>About Us</h2>
+
+            <p>
+                Ivory Brew Coffee is a cozy place where people can enjoy freshly
+                brewed coffee and delicious desserts. We aim to provide a
+                comfortable environment for students and professionals to relax,
+                work, and socialize. Our café focuses on quality, simplicity,
+                and a pleasant customer experience.
+            </p>
+        </div>
+
+        <!-- MENU -->
+        <div class="container mt-5" id="menu">
+            <h2>Menu</h2>
+
+            <div class="row">
+                <!-- Espresso -->
+                <div class="col-md-4">
+                    <div class="card p-2 text-center">
+                        <img
+                            src="https://images.unsplash.com/photo-1510707577719-ae7c14805e3a"
+                            class="food-img"
+                        />
+
+                        <h5>Espresso</h5>
+                        <p>₹120</p>
+
+                        <!-- Quantity -->
+                        <div>
+                            <button
+                                onclick="changeQty('q1', -1)"
+                                class="btn btn-secondary btn-sm"
+                            >
+                                -
+                            </button>
+                            <span id="q1">1</span>
+                            <button
+                                onclick="changeQty('q1', 1)"
+                                class="btn btn-secondary btn-sm"
+                            >
+                                +
+                            </button>
+                        </div>
+
+                        <button
+                            onclick="addToCart('Espresso', 120, 'q1')"
+                            class="btn btn-dark mt-2"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Latte -->
+                <div class="col-md-4">
+                    <div class="card p-2 text-center">
+                        <img
+                            src="https://images.unsplash.com/photo-1509042239860-f550ce710b93"
+                            class="food-img"
+                        />
+
+                        <h5>Latte</h5>
+                        <p>₹150</p>
+
+                        <div>
+                            <button
+                                onclick="changeQty('q2', -1)"
+                                class="btn btn-secondary btn-sm"
+                            >
+                                -
+                            </button>
+                            <span id="q2">1</span>
+                            <button
+                                onclick="changeQty('q2', 1)"
+                                class="btn btn-secondary btn-sm"
+                            >
+                                +
+                            </button>
+                        </div>
+
+                        <button
+                            onclick="addToCart('Latte', 150, 'q2')"
+                            class="btn btn-dark mt-2"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+
+                <!-- Brownie -->
+                <div class="col-md-4">
+                    <div class="card p-2 text-center">
+                        <img
+                            src="https://images.unsplash.com/photo-1606313564200-e75d5e30476c"
+                            class="food-img"
+                        />
+
+                        <h5>Brownie</h5>
+                        <p>₹200</p>
+
+                        <div>
+                            <button
+                                onclick="changeQty('q3', -1)"
+                                class="btn btn-secondary btn-sm"
+                            >
+                                -
+                            </button>
+                            <span id="q3">1</span>
+                            <button
+                                onclick="changeQty('q3', 1)"
+                                class="btn btn-secondary btn-sm"
+                            >
+                                +
+                            </button>
+                        </div>
+
+                        <button
+                            onclick="addToCart('Brownie', 200, 'q3')"
+                            class="btn btn-dark mt-2"
+                        >
+                            Add to Cart
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CART -->
+        <div class="container mt-5" id="cart">
+            <h2>Your Cart</h2>
+
+            <ul id="cartItems"></ul>
+
+            <h4>Total: ₹<span id="total">0</span></h4>
+        </div>
+
+        <div class="container mt-5" id="cart">
+            <h2>Your Cart</h2>
+
+            <ul id="cartItems"></ul>
+
+            <h4>Total: ₹<span id="total">0</span></h4>
+
+            <button onclick="emptyCart()" class="btn btn-dark mt-2">
+                Empty Cart
+            </button>
+
+            <button onclick="checkout()" class="btn btn-light mt-2">
+                Checkout
+            </button>
+        </div>
+
+        <div class="container mt-4" id="location">
+            <h2>Our Location</h2>
+
+            <p>
+                Visit us at:
+                <a
+                    href="https://www.google.com/maps?q=Connaught+Place+Delhi"
+                    target="_blank"
+                >
+                    Ivory Brew Coffee, Connaught Place, Delhi
+                </a>
+            </p>
+        </div>
+
+        <!-- CONTACT -->
+        <div class="container mt-5" id="contact">
+            <h2>Contact</h2>
+
+            <form id="form">
+                <input class="form-control mb-2" placeholder="Name" required />
+                <input
+                    class="form-control mb-2"
+                    type="email"
+                    placeholder="Email"
+                    required
+                />
+                <textarea
+                    class="form-control mb-2"
+                    placeholder="Message"
+                ></textarea>
+
+                <button class="btn btn-dark">Submit</button>
+            </form>
+        </div>
+
+        <!-- FOOTER -->
+        <footer class="bg-dark text-white text-center p-2 mt-4">
+            <p>Contact no: +919569087348</p>
+        </footer>
+
+        <script src="script.js"></script>
+    </body>
+</html>
